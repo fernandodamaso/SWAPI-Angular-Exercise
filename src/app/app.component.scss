@@ -1,0 +1,66 @@
+.layout {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+  margin-top: 50px;
+
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    .card {
+      flex-basis: calc(33% - 10px);
+      background-color: #fff;
+      padding: 15px;
+
+      .nameWrap {
+        p {
+          margin-bottom: 10px;
+
+          span {
+            font-weight: bold;
+          }
+        }
+      }
+
+      .listWrap {
+
+        h2 {
+          font-weight: bold;
+          font-size: 16px;
+        }
+
+        ul {
+
+          li {
+            list-style: none;
+            p {}
+          }
+        }
+      }
+
+      hr {}
+    }
+
+  }
+
+  .loading {
+    margin: 50px 0;
+    text-align: center;
+
+    p {
+      font-size: 22px;
+      color: #1e1e21;
+    }
+  }
+
+  .btns {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 50px;
+
+    button {}
+  }
+}
