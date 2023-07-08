@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class PersonagensService {
+export class PeopleService {
 
   constructor(private http: HttpClient) { }
 
@@ -17,10 +17,6 @@ export class PersonagensService {
   }
 
   getPreviousData(url: string) {
-    return this.http.get<any>(url);
-  }
-
-  getStarships(url: string) {
     return this.http.get<any>(url);
   }
 

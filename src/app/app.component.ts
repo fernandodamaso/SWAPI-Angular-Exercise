@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
-import { PersonagensService } from "./services/personagens.service";
+import { PeopleService } from "./services/people";
+import { ShipsService } from "./services/ships.service";
 
 @Component({
   selector: "app-root",
@@ -10,33 +11,44 @@ export class AppComponent {
   peopleList: any;
   resultData: any;
   loading: boolean = false;
+  starshipNames: string[] = [];
 
-  constructor(private PersonagensService: PersonagensService) {}
+  constructor(private PeopleService: PeopleService, private ShipsService: ShipsService) {}
 
   ngOnInit(): void {
-    this.buscarPersonagens();
+    this.getPeople();
   }
 
-  buscarPersonagens() {
-    this.PersonagensService.getData().subscribe((data) => {
-      console.log(data);
+  getPeople() {
+    this.PeopleService.getData().subscribe((data) => {
       this.resultData = data;
       this.peopleList = data.results;
+      this.fetchStarshipNames();
       console.log(this.peopleList);
+    });
+  }
+
+  fetchStarshipNames() {
+    this.peopleList.forEach((person: any) => {
+      person.starships.forEach((starshipUrl: string) => {
+        this.ShipsService.getData(starshipUrl).subscribe((data) => {
+          this.starshipNames.push(data.name);
+        });
+      });
     });
   }
 
   pagination(event: any) {
     this.loading = true;
     if (event.target.name == "next") {
-      this.PersonagensService.getNextData(this.resultData.next).subscribe((data) => {
+      this.PeopleService.getNextData(this.resultData.next).subscribe((data) => {
         this.resultData = data;
         this.peopleList = data.results;
         this.loading = false;
       });
     } else {
       if (this.resultData.previous) {
-        this.PersonagensService.getPreviousData(this.resultData.previous).subscribe((data) => {
+        this.PeopleService.getPreviousData(this.resultData.previous).subscribe((data) => {
           this.resultData = data;
           this.peopleList = data.results;
           this.loading = false;
