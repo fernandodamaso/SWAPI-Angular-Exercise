@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
-import { PeopleService } from "./services/people";
-import { ShipsService } from "./services/ships.service";
+import { PeopleService } from "./_services/people";
+import { ShipsService } from "./_services/ships.service";
 
 @Component({
   selector: "app-root",
