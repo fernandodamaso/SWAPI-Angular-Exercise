@@ -9,38 +9,10 @@
     flex-wrap: wrap;
     gap: 10px;
 
-    .card {
+    app-card {
       flex-basis: calc(33% - 10px);
       background-color: #fff;
       padding: 15px;
-
-      .nameWrap {
-        p {
-          margin-bottom: 10px;
-
-          span {
-            font-weight: bold;
-          }
-        }
-      }
-
-      .listWrap {
-
-        h2 {
-          font-weight: bold;
-          font-size: 16px;
-        }
-
-        ul {
-
-          li {
-            list-style: none;
-            p {}
-          }
-        }
-      }
-
-      hr {}
     }
 
   }
@@ -55,7 +27,7 @@
     }
   }
 
-  .btns {
+  .pagination {
     display: flex;
     justify-content: center;
     gap: 10px;

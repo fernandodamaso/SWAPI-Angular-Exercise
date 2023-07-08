@@ -2,22 +2,9 @@
   <h1>List of Star Wars Characters and their ships</h1>
   <div class="loading" *ngIf="!resultData || loading"><p>loading...</p></div>
   <div *ngIf="resultData && !loading" class="cards">
-    <div *ngFor="let people of peopleList" class="card">
-      <div class="nameWrap">
-        <p><span>Name:</span> {{ people.name }}</p>
-      </div>
-      <div class="listWrap" *ngIf="people.starships.length > 0">
-        <h2>Ship List:</h2>
-        <ul>
-          <li *ngFor="let urlStarShip of people.starships; let i = index">
-            <p *ngIf="starshipNames[i]">{{ starshipNames[i] }}</p>
-            <p *ngIf="!starshipNames[i]">loading...</p>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <app-card [starshipNames]="starshipNames" [people]="people" *ngFor="let people of peopleList"></app-card>
   </div>
-  <div class="btns" *ngIf="resultData">
+  <div class="pagination" *ngIf="resultData">
     <button [disabled]="!resultData.previous || loading" name="previous" (click)="pagination($event)">Anterior</button>
     <button [disabled]="!resultData.next || loading" name="next" (click)="pagination($event)">Próximo</button>
   </div>

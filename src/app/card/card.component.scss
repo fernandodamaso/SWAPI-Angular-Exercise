@@ -1,0 +1,30 @@
+.card {
+  .nameWrap {
+    p {
+      margin-bottom: 10px;
+
+      span {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .listWrap {
+
+    h2 {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    ul {
+
+      li {
+        list-style: none;
+
+        p {}
+      }
+    }
+  }
+
+  hr {}
+}

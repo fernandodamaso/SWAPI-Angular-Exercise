@@ -1,0 +1,14 @@
+<div class="card">
+  <div class="nameWrap">
+    <p><span>Name:</span> {{ people.name }}</p>
+  </div>
+  <div class="listWrap" *ngIf="people.starships.length > 0">
+    <h2>Ship List:</h2>
+    <ul>
+      <li *ngFor="let urlStarShip of people.starships; let i = index">
+        <p *ngIf="starshipNames[i]">{{ starshipNames[i] }}</p>
+        <p *ngIf="!starshipNames[i]">loading...</p>
+      </li>
+    </ul>
+  </div>
+</div>
